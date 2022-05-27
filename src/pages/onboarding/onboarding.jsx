@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./onboarding.css";
 import { AiFillEdit } from "react-icons/ai";
 import { getGreet, getHour, getMinute } from "../../utils";
-import { getQuote, getWeather } from "../../services";
+import { getQuote } from "../../services";
 import { Weather } from "../../components";
 
 export const OnBoarding = () => {
@@ -13,6 +13,7 @@ export const OnBoarding = () => {
   const [hours, setHours] = useState("");
   const [minutes, setMinutes] = useState("");
   const [quote, setQuote] = useState("");
+  const [toggle, setToggle] = useState(false);
 
   const continueHandler = () => {
     localStorage.setItem("userName", userName);
@@ -62,6 +63,7 @@ export const OnBoarding = () => {
             <>
               <input
                 className="name-input"
+                value={mainFocus}
                 onChange={(e) => setMainFocus(e.target.value)}
               />
               <button className="btn" onClick={() => eventHandler()}>
@@ -70,9 +72,22 @@ export const OnBoarding = () => {
             </>
           ) : (
             <div className="focus">
-              <input type="checkbox" className="focus-input" />
-              <p className="focus-text">{printMainFocus}</p>
-              <AiFillEdit className="focus-edit" />
+              <input
+                type="checkbox"
+                className="focus-input"
+                checked={toggle}
+                onChange={() => setToggle((prev) => !prev)}
+              />
+              <p
+                className="focus-text"
+                style={{ textDecoration: toggle ? "line-through" : "none" }}
+              >
+                {printMainFocus}
+              </p>
+              <AiFillEdit
+                className="focus-edit"
+                onClick={() => setPrintMainFocus("")}
+              />
             </div>
           )}
           <div className="quote">{quote}</div>
