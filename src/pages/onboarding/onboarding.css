@@ -1,0 +1,84 @@
+.container {
+  background: url("https://picsum.photos/1366/768");
+  background-size: cover;
+  background-position: center;
+}
+
+.sub-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sub-container .title {
+  color: var(--white-color);
+  font-size: 4rem;
+}
+
+.sub-container .name-input {
+  margin-top: 2rem;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid var(--white-color);
+  font-size: 3rem;
+  color: var(--white-color);
+  text-align: center;
+}
+
+.sub-container .btn {
+  font-size: 1.2rem;
+  background-color: var(--white-color);
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  border: none;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.sub-container .time {
+  color: var(--white-color);
+  font-size: 5rem;
+}
+
+.sub-container .user-text {
+  color: var(--white-color);
+  font-size: 3rem;
+}
+
+.sub-container .text {
+  margin-top: 2rem;
+  color: var(--white-color);
+  font-size: 2rem;
+}
+
+.sub-container .focus {
+  display: flex;
+}
+
+.sub-container .focus-input {
+  margin: 1rem;
+}
+
+.sub-container .focus-text {
+  color: var(--white-color);
+  font-size: 1.5rem;
+  margin-top: 0.2rem;
+}
+
+.sub-container .focus-edit {
+  color: var(--white-color);
+  margin: 0.7rem 1rem;
+  font-size: 1.5rem;
+}
+
+.quote {
+  text-align: center;
+  color: var(--white-color);
+  margin-top: 5rem;
+}
