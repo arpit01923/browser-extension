@@ -1,1 +1,2 @@
-export { getQuote } from "./quoteservices";
+export { getQuote } from "./quote";
+export { getWeather } from "./weather";

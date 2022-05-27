@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import "./onboarding.css";
 import { AiFillEdit } from "react-icons/ai";
 import { getGreet, getHour, getMinute } from "../../utils";
-import { getQuote } from "../../services";
+import { getQuote, getWeather } from "../../services";
+import { Weather } from "../../components";
 
 export const OnBoarding = () => {
   const [userName, setUserName] = useState("");
@@ -34,8 +35,6 @@ export const OnBoarding = () => {
     getQuote(setQuote);
   }, []);
 
-  console.log(quote);
-
   return (
     <div className="container">
       {!printUserName ? (
@@ -51,6 +50,7 @@ export const OnBoarding = () => {
         </section>
       ) : (
         <section className="sub-container">
+          <Weather />
           <h1 className="time">
             {hours} : {minutes}
           </h1>

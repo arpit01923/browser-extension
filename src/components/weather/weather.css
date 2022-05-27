@@ -1,0 +1,11 @@
+.weather-container {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 1rem;
+}
+
+.weather-data {
+  margin-top: 1.5rem;
+  color: var(--white-color);
+}
