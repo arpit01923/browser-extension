@@ -1,0 +1,1 @@
+export { getQuote } from "./quoteservices";
