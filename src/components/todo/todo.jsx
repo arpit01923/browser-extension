@@ -1,12 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import "./todo.css";
 
 export const Todo = () => {
-  const [todo, setTodo] = useState([]);
+  const [todo, setTodo] = useState(
+    localStorage.getItem("todo")
+      ? JSON.parse(localStorage.getItem("todo"))
+      : []
+  );
   const [content, setContent] = useState("");
   const [editContent, setEditContent] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("todo", JSON.stringify(todo));
+  }, [todo]);
 
   const addTodoHandler = (e) => {
     if (e.key === "Enter") {
