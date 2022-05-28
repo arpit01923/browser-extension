@@ -3,7 +3,7 @@ import "./onboarding.css";
 import { AiFillEdit } from "react-icons/ai";
 import { getGreet, getHour, getMinute } from "../../utils";
 import { getQuote } from "../../services";
-import { Weather } from "../../components";
+import { Todo, Weather } from "../../components";
 
 export const OnBoarding = () => {
   const [userName, setUserName] = useState("");
@@ -51,7 +51,6 @@ export const OnBoarding = () => {
         </section>
       ) : (
         <section className="sub-container">
-          <Weather />
           <h1 className="time">
             {hours} : {minutes}
           </h1>
@@ -93,6 +92,8 @@ export const OnBoarding = () => {
           <div className="quote">{quote}</div>
         </section>
       )}
+      <Weather />
+      <Todo />
     </div>
   );
 };
