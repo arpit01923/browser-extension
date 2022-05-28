@@ -41,11 +41,10 @@ export const Todo = () => {
   const editTodoHandler = (e, todoId) => {
     if (e.key === "Enter") {
       const editedTodo = todo.map((item) =>
-        item.id === todoId
-          ? ({ ...item, data: editContent, edit: false }, setEditContent(""))
-          : item
+        item.id === todoId ? { ...item, data: editContent, edit: false } : item
       );
-      console.log({editedTodo});
+      setTodo(editedTodo);
+      setContent("");
     }
   };
 

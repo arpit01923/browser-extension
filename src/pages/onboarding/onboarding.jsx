@@ -7,13 +7,18 @@ import { Todo, Weather } from "../../components";
 
 export const OnBoarding = () => {
   const [userName, setUserName] = useState("");
-  const [printUserName, setPrintUserName] = useState("");
+  const [printUserName, setPrintUserName] = useState(
+    localStorage.getItem("userName")
+  );
   const [mainFocus, setMainFocus] = useState("");
-  const [printMainFocus, setPrintMainFocus] = useState("");
+  const [printMainFocus, setPrintMainFocus] = useState(
+    localStorage.getItem("mainFocus")
+  );
   const [hours, setHours] = useState("");
   const [minutes, setMinutes] = useState("");
   const [quote, setQuote] = useState("");
   const [toggle, setToggle] = useState(false);
+  const [todoModal, setTodoModal] = useState(false);
 
   const continueHandler = () => {
     localStorage.setItem("userName", userName);
@@ -50,50 +55,55 @@ export const OnBoarding = () => {
           </button>
         </section>
       ) : (
-        <section className="sub-container">
-          <h1 className="time">
-            {hours} : {minutes}
-          </h1>
-          <p className="user-text">
-            {getGreet()}, {printUserName}.
-          </p>
-          <p className="text">What is your main focus for today ?</p>
-          {!printMainFocus ? (
-            <>
-              <input
-                className="name-input"
-                value={mainFocus}
-                onChange={(e) => setMainFocus(e.target.value)}
-              />
-              <button className="btn" onClick={() => eventHandler()}>
-                Add event
-              </button>{" "}
-            </>
-          ) : (
-            <div className="focus">
-              <input
-                type="checkbox"
-                className="focus-input"
-                checked={toggle}
-                onChange={() => setToggle((prev) => !prev)}
-              />
-              <p
-                className="focus-text"
-                style={{ textDecoration: toggle ? "line-through" : "none" }}
-              >
-                {printMainFocus}
-              </p>
-              <AiFillEdit
-                className="focus-edit"
-                onClick={() => setPrintMainFocus("")}
-              />
-            </div>
-          )}
+        <>
+          <section className="sub-container">
+            <h1 className="time">
+              {hours} : {minutes}
+            </h1>
+            <p className="user-text">
+              {getGreet()}, {printUserName}.
+            </p>
+            <p className="text">What is your main focus for today ?</p>
+            {!printMainFocus ? (
+              <>
+                <input
+                  className="name-input"
+                  value={mainFocus}
+                  onChange={(e) => setMainFocus(e.target.value)}
+                />
+                <button className="btn" onClick={() => eventHandler()}>
+                  Add event
+                </button>{" "}
+              </>
+            ) : (
+              <div className="focus">
+                <input
+                  type="checkbox"
+                  className="focus-input"
+                  checked={toggle}
+                  onChange={() => setToggle((prev) => !prev)}
+                />
+                <p
+                  className="focus-text"
+                  style={{ textDecoration: toggle ? "line-through" : "none" }}
+                >
+                  {printMainFocus}
+                </p>
+                <AiFillEdit
+                  className="focus-edit"
+                  onClick={() => setPrintMainFocus("")}
+                />
+              </div>
+            )}
+          </section>
           <div className="quote">{quote}</div>
-        </section>
+          <Weather />
+          {todoModal && <Todo />}
+          <span className="todo" onClick={() => setTodoModal((prev) => !prev)}>
+            Todo
+          </span>
+        </>
       )}
-      <Weather />
-      <Todo />
     </div>
   );
 };
