@@ -1,5 +1,6 @@
 .container {
-  background: url("https://picsum.photos/1366/768");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://picsum.photos/1366/768");
   background-size: cover;
   background-position: center;
 }
@@ -75,10 +76,21 @@
   color: var(--white-color);
   margin: 0.7rem 1rem;
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .quote {
-  text-align: center;
   color: var(--white-color);
-  margin-top: 5rem;
+  position: fixed;
+  bottom: 1rem;
+  left: 44%;
+}
+
+.container .todo{
+  font-size: 2rem;
+  color: var(--white-color);
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  cursor: pointer;
 }

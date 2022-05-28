@@ -1,0 +1,30 @@
+.todo-container {
+  position: absolute;
+  bottom: 4rem;
+  right: 3rem;
+  background-color: var(--black-color);
+  width: 13rem;
+  height: 15rem;
+  padding: 0.5rem;
+}
+
+.todo-container > input {
+  width: 100%;
+  padding: 0.3rem;
+}
+
+.todo-container .list{
+  list-style: none;
+}
+
+.todo-container .list-item {
+  color: var(--white-color);
+  margin: 0.5rem 0;
+}
+
+.list-item .edit,
+.list-item .input,
+.list-item .delete {
+  margin: 0 0.5rem;
+  cursor: pointer;
+}

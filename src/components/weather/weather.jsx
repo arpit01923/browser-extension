@@ -32,8 +32,6 @@ export const Weather = () => {
     getWeather(loc?.lat, loc?.lon, setWeather);
   }, [loc?.lat, loc?.lon, setWeather]);
 
-  console.log(weather);
-
   return (
     <div className="weather-container">
       <img
@@ -41,7 +39,7 @@ export const Weather = () => {
         alt={weather?.weather[0]?.description}
       />
       <div className="weather-data">
-        <h1>{weather?.main?.temp.toFixed(0)}°C</h1>
+        <h1>{weather?.main?.temp.toFixed(0) - 273}°C</h1>
         <p>{weather?.name}</p>
       </div>
     </div>
