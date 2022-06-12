@@ -7,5 +7,10 @@
   "browser_action": {
     "default_popup": "index.html",
     "default_title": "Fresh Move"
+  },
+
+  "chrome_url_overrides": {
+    "newtab": "index.html"
   }
 }
+
