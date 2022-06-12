@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import "./onboarding.css";
 import { AiFillEdit } from "react-icons/ai";
-import { getGreet, getHour, getMinute } from "../../utils";
-import { getQuote } from "../../services";
-import { Todo, Weather } from "../../components";
+import { getGreet, getHour, getMinute } from "utils";
+import { getQuote } from "services";
+import { Todo, Weather } from "components";
 
 export const OnBoarding = () => {
   const [userName, setUserName] = useState("");

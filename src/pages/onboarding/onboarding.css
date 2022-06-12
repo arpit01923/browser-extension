@@ -83,7 +83,8 @@
   color: var(--white-color);
   position: fixed;
   bottom: 1rem;
-  left: 44%;
+  left: 50%;
+  transform: translate(-50%,0);
 }
 
 .container .todo{
