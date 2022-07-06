@@ -44,7 +44,7 @@ export const OnBoarding = () => {
     <div className="container">
       <a
         className="download-btn"
-        href="https://addons.mozilla.org/en-US/firefox/addon/fresh--move/"
+        href="https://addons.mozilla.org/en-US/firefox/addon/fresh-move/"
       >
         Download extension
         <AiOutlineArrowDown className="download-icon" />
