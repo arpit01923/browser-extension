@@ -31,17 +31,21 @@ export const Weather = () => {
   useEffect(() => {
     getWeather(loc?.lat, loc?.lon, setWeather);
   }, [loc?.lat, loc?.lon, setWeather]);
-
+  
   return (
     <div className="weather-container">
-      <img
-        src={`http://openweathermap.org/img/wn/${weather?.weather[0]?.icon}@2x.png`}
-        alt={weather?.weather[0]?.description}
-      />
-      <div className="weather-data">
-        <h1>{weather?.main?.temp.toFixed(0) - 273}°C</h1>
-        <p>{weather?.name}</p>
-      </div>
+      {weather && (
+        <>
+          <img
+            src={`http://openweathermap.org/img/wn/${weather?.weather[0]?.icon}@2x.png`}
+            alt={weather?.weather[0]?.description}
+          />
+          <div className="weather-data">
+            <h1>{weather?.main?.temp.toFixed(0) - 273}°C</h1>
+            <p>{weather?.name}</p>
+          </div>
+        </>
+      )}
     </div>
   );
 };

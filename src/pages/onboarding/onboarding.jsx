@@ -4,6 +4,7 @@ import { AiFillEdit } from "react-icons/ai";
 import { getGreet, getHour, getMinute } from "utils";
 import { getQuote } from "services";
 import { Todo, Weather } from "components";
+import { AiOutlineArrowDown } from "react-icons/ai";
 
 export const OnBoarding = () => {
   const [userName, setUserName] = useState("");
@@ -14,8 +15,7 @@ export const OnBoarding = () => {
   const [printMainFocus, setPrintMainFocus] = useState(
     localStorage.getItem("mainFocus")
   );
-  const [hours, setHours] = useState("");
-  const [minutes, setMinutes] = useState("");
+  const [time, setTime] = useState(null);
   const [quote, setQuote] = useState("");
   const [toggle, setToggle] = useState(false);
   const [todoModal, setTodoModal] = useState(false);
@@ -32,10 +32,9 @@ export const OnBoarding = () => {
 
   useEffect(() => {
     setInterval(() => {
-      setHours(getHour());
-      setMinutes(getMinute());
+      setTime({ ...time, hours: getHour(), minutes: getMinute() });
     }, 1000);
-  }, [hours, minutes]);
+  }, [time]);
 
   useEffect(() => {
     getQuote(setQuote);
@@ -43,6 +42,13 @@ export const OnBoarding = () => {
 
   return (
     <div className="container">
+      <a
+        className="download-btn"
+        href="https://addons.mozilla.org/en-US/firefox/addon/fresh--move/"
+      >
+        Download extension
+        <AiOutlineArrowDown className="download-icon" />
+      </a>
       {!printUserName ? (
         <section className="sub-container">
           <h1 className="title">Hello what's your name ?</h1>
@@ -57,15 +63,17 @@ export const OnBoarding = () => {
       ) : (
         <>
           <section className="sub-container">
-            <h1 className="time">
-              {hours} : {minutes}
-            </h1>
+            {time && (
+              <h1 className="time">
+                {time.hours} : {time.minutes}
+              </h1>
+            )}
             <p className="user-text">
               {getGreet()}, {printUserName}.
             </p>
-            <p className="text">What is your main focus for today ?</p>
             {!printMainFocus ? (
               <>
+                <p className="text">What is your main focus for today ?</p>
                 <input
                   className="name-input"
                   value={mainFocus}
