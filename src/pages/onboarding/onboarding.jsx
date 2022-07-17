@@ -20,9 +20,11 @@ export const OnBoarding = () => {
   const [toggle, setToggle] = useState(false);
   const [todoModal, setTodoModal] = useState(false);
 
-  const continueHandler = () => {
-    localStorage.setItem("userName", userName);
-    setPrintUserName(localStorage.getItem("userName"));
+  const continueHandler = (e) => {
+    if (e.key === "Enter" || e.target.innerText === "Continue") {
+      localStorage.setItem("userName", userName);
+      setPrintUserName(localStorage.getItem("userName"));
+    }
   };
 
   const eventHandler = () => {
@@ -55,8 +57,9 @@ export const OnBoarding = () => {
           <input
             className="name-input"
             onChange={(e) => setUserName(e.target.value)}
+            onKeyUp={(e) => continueHandler(e)}
           />
-          <button className="btn" onClick={() => continueHandler()}>
+          <button className="btn" onClick={(e) => continueHandler(e)}>
             Continue
           </button>
         </section>

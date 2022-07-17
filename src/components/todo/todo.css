@@ -6,6 +6,7 @@
   width: 13rem;
   height: 15rem;
   padding: 0.5rem;
+  overflow-x: hidden;
 }
 
 .todo-container > input {
