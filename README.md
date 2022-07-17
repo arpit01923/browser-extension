@@ -2,7 +2,7 @@
 
 # [Live Link](https://fresh-move.netlify.app)
 
-This is fully functional browser extension which inluded add user name, add main focus,display time and current weather in sync, wallpaper and quote changing on every page refresh,add todos,add multiple countdown,settings.
+This is fully functional browser extension which inluded add user name, add main focus,display time and current weather in sync, wallpaper and quote changing on every page refresh,add todos.
 
 > I used local storage in this extension so that user can't lost any data like todos,main focus,name etc.
 
